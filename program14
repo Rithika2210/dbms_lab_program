@@ -49,9 +49,19 @@ mark1=pmark1,mark2=pmark2,total=vtotal,average=vaverage, result=vresult
 where rno=prno; 
 commit; 
 end; 
+
+
  select * from tbmarks;
+
 exec prmarksupd(2,55,56);
+
+create or replace procedure prmarksdel(prno in number) is 
+begin 
+delete from tbmarks whererno=prno; commit; 
+end;
+
 exec prmarksdel(2); 
+
  select * from tbmarks; 
 
   
